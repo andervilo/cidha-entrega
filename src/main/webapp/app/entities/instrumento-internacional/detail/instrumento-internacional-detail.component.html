@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="instrumentoInternacional">
+      <h2 data-cy="instrumentoInternacionalDetailsHeading"><span>Instrumento Internacional</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ instrumentoInternacional.id }}</span>
+        </dd>
+        <dt><span>Instrumento Internacional Citado Descricao</span></dt>
+        <dd>
+          <span>{{ instrumentoInternacional.instrumentoInternacionalCitadoDescricao }}</span>
+        </dd>
+        <dt><span>Folhas Instrumento Internacional</span></dt>
+        <dd>
+          <span>{{ instrumentoInternacional.folhasInstrumentoInternacional }}</span>
+        </dd>
+        <dt><span>Instrumento Internacional Sugerido</span></dt>
+        <dd>
+          <span>{{ instrumentoInternacional.instrumentoInternacionalSugerido }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/instrumento-internacional', instrumentoInternacional.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

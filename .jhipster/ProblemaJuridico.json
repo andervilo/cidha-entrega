@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172457",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "problema_juridico",
+  "fields": [
+    {
+      "fieldName": "prolemaJuridicoRespondido",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasProblemaJuridico",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ProblemaJuridico",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "fundamentacaoDoutrinariaCitada",
+      "otherEntityName": "fundamentacaoDoutrinaria",
+      "otherEntityRelationshipName": "problemaJuridico",
+      "ownerSide": true,
+      "relationshipName": "fundamentacaoDoutrinaria",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "jurisprudenciaCitadaDescricao",
+      "otherEntityName": "jurisprudencia",
+      "otherEntityRelationshipName": "problemaJuridico",
+      "ownerSide": true,
+      "relationshipName": "jurisprudencia",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "fundamentacaoLegal",
+      "otherEntityName": "fundamentacaoLegal",
+      "otherEntityRelationshipName": "problemaJuridico",
+      "ownerSide": true,
+      "relationshipName": "fundamentacaoLegal",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "instrumentoInternacionalCitadoDescricao",
+      "otherEntityName": "instrumentoInternacional",
+      "otherEntityRelationshipName": "problemaJuridico",
+      "ownerSide": true,
+      "relationshipName": "instrumentoInternacional",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "problemaJuridico",
+      "ownerSide": true,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

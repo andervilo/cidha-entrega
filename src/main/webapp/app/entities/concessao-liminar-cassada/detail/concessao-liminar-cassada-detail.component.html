@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="concessaoLiminarCassada">
+      <h2 data-cy="concessaoLiminarCassadaDetailsHeading"><span>Concessao Liminar Cassada</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ concessaoLiminarCassada.id }}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+          <span>{{ concessaoLiminarCassada.descricao }}</span>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <div *ngIf="concessaoLiminarCassada.processo">
+            <a [routerLink]="['/processo', concessaoLiminarCassada.processo?.id, 'view']">{{ concessaoLiminarCassada.processo?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/concessao-liminar-cassada', concessaoLiminarCassada.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

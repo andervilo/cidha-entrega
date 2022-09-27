@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="embargoRecursoEspecial">
+      <h2 data-cy="embargoRecursoEspecialDetailsHeading"><span>Embargo Recurso Especial</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ embargoRecursoEspecial.id }}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+          <span>{{ embargoRecursoEspecial.descricao }}</span>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <div *ngIf="embargoRecursoEspecial.processo">
+            <a [routerLink]="['/processo', embargoRecursoEspecial.processo?.id, 'view']">{{ embargoRecursoEspecial.processo?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/embargo-recurso-especial', embargoRecursoEspecial.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

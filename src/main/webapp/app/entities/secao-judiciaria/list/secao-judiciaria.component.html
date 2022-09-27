@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="SecaoJudiciariaHeading">
+    <span>Secao Judiciarias</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-secao-judiciaria"
+        [routerLink]="['/secao-judiciaria/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Secao Judiciaria </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="secaoJudiciarias?.length === 0">
+    <span>No secaoJudiciarias found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="secaoJudiciarias && secaoJudiciarias.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Sigla</span></th>
+          <th scope="col"><span>Nome</span></th>
+          <th scope="col"><span>Subsecao Judiciaria</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let secaoJudiciaria of secaoJudiciarias; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/secao-judiciaria', secaoJudiciaria.id, 'view']">{{ secaoJudiciaria.id }}</a>
+          </td>
+          <td>{{ secaoJudiciaria.sigla }}</td>
+          <td>{{ secaoJudiciaria.nome }}</td>
+          <td>
+            <div *ngIf="secaoJudiciaria.subsecaoJudiciaria">
+              <a [routerLink]="['/subsecao-judiciaria', secaoJudiciaria.subsecaoJudiciaria?.id, 'view']">{{
+                secaoJudiciaria.subsecaoJudiciaria?.nome
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/secao-judiciaria', secaoJudiciaria.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/secao-judiciaria', secaoJudiciaria.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(secaoJudiciaria)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

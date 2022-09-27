@@ -1,0 +1,464 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172500",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "processo",
+  "fields": [
+    {
+      "fieldName": "numeroProcesso",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oficio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "assunto",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "linkUnico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "linkTrf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "turmaTrf1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroProcessoAdministrativo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroProcessoJudicialPrimeiraInstancia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroProcessoJudicialPrimeiraInstanciaLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroProcessoJudicialPrimeiraInstanciaObservacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "parecer",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "folhasProcessoConcessaoLiminar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "concessaoLiminarObservacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasProcessoCassacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasParecer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasEmbargo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acordaoEmbargo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasCienciaJulgEmbargos",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apelacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasApelacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acordaoApelacao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasCienciaJulgApelacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "embargoDeclaracao",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "embargoRecursoExtraordinario",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "folhasRecursoEspecial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acordaoRecursoEspecial",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasCienciaJulgamentoRecursoEspecial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "embargoRecursoEspecial",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "folhasCiencia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "agravoRespRe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasRespRe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acordaoAgravoRespRe",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasCienciaJulgamentoAgravoRespRe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "embargoRespRe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "agravoInterno",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasAgravoInterno",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "embargoRecursoAgravo",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "observacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "recursoSTJ",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "linkRecursoSTJ",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasRecursoSTJ",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "recursoSTF",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "linkRecursoSTF",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasRecursoSTF",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "folhasMemorialMPF",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "execusaoProvisoria",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "numeracaoExecusaoProvisoria",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "recuperacaoEfetivaCumprimentoSentenca",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "recuperacaoEfetivaCumprimentoSentencaObservacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "envolveEmpreendimento",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "envolveExploracaoIlegal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "envolveTerraQuilombola",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "envolveTerraComunidadeTradicional",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "envolveTerraIndigena",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "resumoFatos",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "tamanhoArea",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "valorArea",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "tamanhoAreaObservacao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "dadosGeograficosLitigioConflito",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroProcessoMPF",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroEmbargo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pautaApelacao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "numeroRecursoEspecial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "admissiblidade",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "envolveGrandeProjeto",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "envolveUnidadeConservacao",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "linkReferencia",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "statusProcesso",
+      "fieldType": "StatusProcesso",
+      "fieldValues": "EM_ANDAMENTO,FINALIZADO"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Processo",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "concessaoLiminar",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "concessaoLiminar",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "concessaoLiminarCassada",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "concessaoLiminarCassada",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "embargoDeclaracao",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "embargoDeclaracao",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "embargoDeclaracaoAgravo",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "embargoDeclaracaoAgravo",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "embargoRecursoEspecial",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "embargoRecursoEspecial",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "embargoRespRe",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "embargoRespRe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "tipoDecisao",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "tipoDecisao",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "tipoEmpreendimento",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "tipoEmpreendimento",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "secaoJudiciaria",
+      "otherEntityRelationshipName": "processo",
+      "relationshipName": "secaoJudiciaria",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "comarca",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "comarca",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "municipio",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "territorio",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "territorio",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "atividadeExploracaoIlegal",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "atividadeExploracaoIlegal",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "unidadeConservacao",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "unidadeConservacao",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "envolvidosConflitoLitigio",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "envolvidosConflitoLitigio",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "terraIndigena",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "terraIndigena",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nomeCasoComuidade",
+      "otherEntityName": "processoConflito",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "processoConflito",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "parteInteresssada",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "parteInteresssada",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "relator",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "relator",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "quilombo",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": true,
+      "relationshipName": "quilombo",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "problemaJuridico",
+      "otherEntityRelationshipName": "processo",
+      "ownerSide": false,
+      "relationshipName": "problemaJuridico",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

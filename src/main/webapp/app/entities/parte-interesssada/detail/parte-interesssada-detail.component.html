@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="parteInteresssada">
+      <h2 data-cy="parteInteresssadaDetailsHeading"><span>Parte Interesssada</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ parteInteresssada.id }}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+          <span>{{ parteInteresssada.nome }}</span>
+        </dd>
+        <dt><span>Classificacao</span></dt>
+        <dd>
+          <span>{{ parteInteresssada.classificacao }}</span>
+        </dd>
+        <dt><span>Representante Legal</span></dt>
+        <dd>
+          <span *ngFor="let representanteLegal of parteInteresssada.representanteLegals; let last = last">
+            <a [routerLink]="['/representante-legal', representanteLegal?.id, 'view']">{{ representanteLegal.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/parte-interesssada', parteInteresssada.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

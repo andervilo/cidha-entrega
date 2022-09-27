@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172442",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "data",
+  "fields": [
+    {
+      "fieldName": "data",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Data",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "tipoData",
+      "otherEntityRelationshipName": "data",
+      "ownerSide": true,
+      "relationshipName": "tipoData",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "data",
+      "relationshipName": "processo",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

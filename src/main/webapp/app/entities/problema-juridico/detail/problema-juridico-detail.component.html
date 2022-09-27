@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="problemaJuridico">
+      <h2 data-cy="problemaJuridicoDetailsHeading"><span>Problema Juridico</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ problemaJuridico.id }}</span>
+        </dd>
+        <dt><span>Prolema Juridico Respondido</span></dt>
+        <dd>
+          <span>{{ problemaJuridico.prolemaJuridicoRespondido }}</span>
+        </dd>
+        <dt><span>Folhas Problema Juridico</span></dt>
+        <dd>
+          <span>{{ problemaJuridico.folhasProblemaJuridico }}</span>
+        </dd>
+        <dt><span>Fundamentacao Doutrinaria</span></dt>
+        <dd>
+          <span *ngFor="let fundamentacaoDoutrinaria of problemaJuridico.fundamentacaoDoutrinarias; let last = last">
+            <a [routerLink]="['/fundamentacao-doutrinaria', fundamentacaoDoutrinaria?.id, 'view']">{{
+              fundamentacaoDoutrinaria.fundamentacaoDoutrinariaCitada
+            }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Jurisprudencia</span></dt>
+        <dd>
+          <span *ngFor="let jurisprudencia of problemaJuridico.jurisprudencias; let last = last">
+            <a [routerLink]="['/jurisprudencia', jurisprudencia?.id, 'view']">{{ jurisprudencia.jurisprudenciaCitadaDescricao }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Fundamentacao Legal</span></dt>
+        <dd>
+          <span *ngFor="let fundamentacaoLegal of problemaJuridico.fundamentacaoLegals; let last = last">
+            <a [routerLink]="['/fundamentacao-legal', fundamentacaoLegal?.id, 'view']">{{ fundamentacaoLegal.fundamentacaoLegal }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Instrumento Internacional</span></dt>
+        <dd>
+          <span *ngFor="let instrumentoInternacional of problemaJuridico.instrumentoInternacionals; let last = last">
+            <a [routerLink]="['/instrumento-internacional', instrumentoInternacional?.id, 'view']">{{
+              instrumentoInternacional.instrumentoInternacionalCitadoDescricao
+            }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <span *ngFor="let processo of problemaJuridico.processos; let last = last">
+            <a [routerLink]="['/processo', processo?.id, 'view']">{{ processo.oficio }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/problema-juridico', problemaJuridico.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

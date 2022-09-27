@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172510",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_empreendimento",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TipoEmpreendimento",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

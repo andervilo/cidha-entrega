@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172454",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "municipio",
+  "fields": [
+    {
+      "fieldName": "amazoniaLegal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "codigoIbge",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Municipio",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "municipio",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

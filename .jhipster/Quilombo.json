@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172502",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "quilombo",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoQuilombo",
+      "fieldType": "TipoQuilombo",
+      "fieldValues": "COMUNIDADE,TERRITORIO,AMBOS"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Quilombo",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "quilombo",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

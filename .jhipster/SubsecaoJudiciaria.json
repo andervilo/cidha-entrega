@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172459",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "subsecao_judiciaria",
+  "fields": [
+    {
+      "fieldName": "sigla",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SubsecaoJudiciaria",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

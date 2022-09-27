@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172456",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "parte_interesssada",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "classificacao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ParteInteresssada",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "representanteLegal",
+      "otherEntityRelationshipName": "processoConflito",
+      "ownerSide": true,
+      "relationshipName": "representanteLegal",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "parteInteresssada",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

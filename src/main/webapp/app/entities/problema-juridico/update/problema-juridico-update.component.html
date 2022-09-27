@@ -1,0 +1,153 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-problema-juridico-heading" data-cy="ProblemaJuridicoCreateUpdateHeading">Create or edit a Problema Juridico</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_prolemaJuridicoRespondido">Prolema Juridico Respondido</label>
+          <textarea
+            class="form-control"
+            name="prolemaJuridicoRespondido"
+            id="field_prolemaJuridicoRespondido"
+            data-cy="prolemaJuridicoRespondido"
+            formControlName="prolemaJuridicoRespondido"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasProblemaJuridico">Folhas Problema Juridico</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasProblemaJuridico"
+            id="field_folhasProblemaJuridico"
+            data-cy="folhasProblemaJuridico"
+            formControlName="folhasProblemaJuridico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_fundamentacaoDoutrinarias">Fundamentacao Doutrinaria</label>
+          <select
+            class="form-control"
+            id="field_fundamentacaoDoutrinarias"
+            data-cy="fundamentacaoDoutrinaria"
+            multiple
+            name="fundamentacaoDoutrinarias"
+            formControlName="fundamentacaoDoutrinarias"
+          >
+            <option
+              [ngValue]="
+                getSelectedFundamentacaoDoutrinaria(fundamentacaoDoutrinariaOption, editForm.get('fundamentacaoDoutrinarias')!.value)
+              "
+              *ngFor="
+                let fundamentacaoDoutrinariaOption of fundamentacaoDoutrinariasSharedCollection;
+                trackBy: trackFundamentacaoDoutrinariaById
+              "
+            >
+              {{ fundamentacaoDoutrinariaOption.fundamentacaoDoutrinariaCitada }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_jurisprudencias">Jurisprudencia</label>
+          <select
+            class="form-control"
+            id="field_jurisprudencias"
+            data-cy="jurisprudencia"
+            multiple
+            name="jurisprudencias"
+            formControlName="jurisprudencias"
+          >
+            <option
+              [ngValue]="getSelectedJurisprudencia(jurisprudenciaOption, editForm.get('jurisprudencias')!.value)"
+              *ngFor="let jurisprudenciaOption of jurisprudenciasSharedCollection; trackBy: trackJurisprudenciaById"
+            >
+              {{ jurisprudenciaOption.jurisprudenciaCitadaDescricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_fundamentacaoLegals">Fundamentacao Legal</label>
+          <select
+            class="form-control"
+            id="field_fundamentacaoLegals"
+            data-cy="fundamentacaoLegal"
+            multiple
+            name="fundamentacaoLegals"
+            formControlName="fundamentacaoLegals"
+          >
+            <option
+              [ngValue]="getSelectedFundamentacaoLegal(fundamentacaoLegalOption, editForm.get('fundamentacaoLegals')!.value)"
+              *ngFor="let fundamentacaoLegalOption of fundamentacaoLegalsSharedCollection; trackBy: trackFundamentacaoLegalById"
+            >
+              {{ fundamentacaoLegalOption.fundamentacaoLegal }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_instrumentoInternacionals">Instrumento Internacional</label>
+          <select
+            class="form-control"
+            id="field_instrumentoInternacionals"
+            data-cy="instrumentoInternacional"
+            multiple
+            name="instrumentoInternacionals"
+            formControlName="instrumentoInternacionals"
+          >
+            <option
+              [ngValue]="
+                getSelectedInstrumentoInternacional(instrumentoInternacionalOption, editForm.get('instrumentoInternacionals')!.value)
+              "
+              *ngFor="
+                let instrumentoInternacionalOption of instrumentoInternacionalsSharedCollection;
+                trackBy: trackInstrumentoInternacionalById
+              "
+            >
+              {{ instrumentoInternacionalOption.instrumentoInternacionalCitadoDescricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_processos">Processo</label>
+          <select class="form-control" id="field_processos" data-cy="processo" multiple name="processos" formControlName="processos">
+            <option
+              [ngValue]="getSelectedProcesso(processoOption, editForm.get('processos')!.value)"
+              *ngFor="let processoOption of processosSharedCollection; trackBy: trackProcessoById"
+            >
+              {{ processoOption.oficio }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

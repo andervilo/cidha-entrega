@@ -1,0 +1,407 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="processo">
+      <h2 data-cy="processoDetailsHeading"><span>Processo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ processo.id }}</span>
+        </dd>
+        <dt><span>Numero Processo</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcesso }}</span>
+        </dd>
+        <dt><span>Oficio</span></dt>
+        <dd>
+          <span>{{ processo.oficio }}</span>
+        </dd>
+        <dt><span>Assunto</span></dt>
+        <dd>
+          <span>{{ processo.assunto }}</span>
+        </dd>
+        <dt><span>Link Unico</span></dt>
+        <dd>
+          <span>{{ processo.linkUnico }}</span>
+        </dd>
+        <dt><span>Link Trf</span></dt>
+        <dd>
+          <span>{{ processo.linkTrf }}</span>
+        </dd>
+        <dt><span>Turma Trf 1</span></dt>
+        <dd>
+          <span>{{ processo.turmaTrf1 }}</span>
+        </dd>
+        <dt><span>Numero Processo Administrativo</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcessoAdministrativo }}</span>
+        </dd>
+        <dt><span>Numero Processo Judicial Primeira Instancia</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcessoJudicialPrimeiraInstancia }}</span>
+        </dd>
+        <dt><span>Numero Processo Judicial Primeira Instancia Link</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcessoJudicialPrimeiraInstanciaLink }}</span>
+        </dd>
+        <dt><span>Numero Processo Judicial Primeira Instancia Observacoes</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcessoJudicialPrimeiraInstanciaObservacoes }}</span>
+        </dd>
+        <dt><span>Parecer</span></dt>
+        <dd>
+          <span>{{ processo.parecer }}</span>
+        </dd>
+        <dt><span>Folhas Processo Concessao Liminar</span></dt>
+        <dd>
+          <span>{{ processo.folhasProcessoConcessaoLiminar }}</span>
+        </dd>
+        <dt><span>Concessao Liminar Observacoes</span></dt>
+        <dd>
+          <span>{{ processo.concessaoLiminarObservacoes }}</span>
+        </dd>
+        <dt><span>Folhas Processo Cassacao</span></dt>
+        <dd>
+          <span>{{ processo.folhasProcessoCassacao }}</span>
+        </dd>
+        <dt><span>Folhas Parecer</span></dt>
+        <dd>
+          <span>{{ processo.folhasParecer }}</span>
+        </dd>
+        <dt><span>Folhas Embargo</span></dt>
+        <dd>
+          <span>{{ processo.folhasEmbargo }}</span>
+        </dd>
+        <dt><span>Acordao Embargo</span></dt>
+        <dd>
+          <span>{{ processo.acordaoEmbargo }}</span>
+        </dd>
+        <dt><span>Folhas Ciencia Julg Embargos</span></dt>
+        <dd>
+          <span>{{ processo.folhasCienciaJulgEmbargos }}</span>
+        </dd>
+        <dt><span>Apelacao</span></dt>
+        <dd>
+          <span>{{ processo.apelacao }}</span>
+        </dd>
+        <dt><span>Folhas Apelacao</span></dt>
+        <dd>
+          <span>{{ processo.folhasApelacao }}</span>
+        </dd>
+        <dt><span>Acordao Apelacao</span></dt>
+        <dd>
+          <span>{{ processo.acordaoApelacao }}</span>
+        </dd>
+        <dt><span>Folhas Ciencia Julg Apelacao</span></dt>
+        <dd>
+          <span>{{ processo.folhasCienciaJulgApelacao }}</span>
+        </dd>
+        <dt><span>Embargo Declaracao</span></dt>
+        <dd>
+          <span>{{ processo.embargoDeclaracao }}</span>
+        </dd>
+        <dt><span>Embargo Recurso Extraordinario</span></dt>
+        <dd>
+          <span>{{ processo.embargoRecursoExtraordinario }}</span>
+        </dd>
+        <dt><span>Folhas Recurso Especial</span></dt>
+        <dd>
+          <span>{{ processo.folhasRecursoEspecial }}</span>
+        </dd>
+        <dt><span>Acordao Recurso Especial</span></dt>
+        <dd>
+          <span>{{ processo.acordaoRecursoEspecial }}</span>
+        </dd>
+        <dt><span>Folhas Ciencia Julgamento Recurso Especial</span></dt>
+        <dd>
+          <span>{{ processo.folhasCienciaJulgamentoRecursoEspecial }}</span>
+        </dd>
+        <dt><span>Embargo Recurso Especial</span></dt>
+        <dd>
+          <span>{{ processo.embargoRecursoEspecial }}</span>
+        </dd>
+        <dt><span>Folhas Ciencia</span></dt>
+        <dd>
+          <span>{{ processo.folhasCiencia }}</span>
+        </dd>
+        <dt><span>Agravo Resp Re</span></dt>
+        <dd>
+          <span>{{ processo.agravoRespRe }}</span>
+        </dd>
+        <dt><span>Folhas Resp Re</span></dt>
+        <dd>
+          <span>{{ processo.folhasRespRe }}</span>
+        </dd>
+        <dt><span>Acordao Agravo Resp Re</span></dt>
+        <dd>
+          <span>{{ processo.acordaoAgravoRespRe }}</span>
+        </dd>
+        <dt><span>Folhas Ciencia Julgamento Agravo Resp Re</span></dt>
+        <dd>
+          <span>{{ processo.folhasCienciaJulgamentoAgravoRespRe }}</span>
+        </dd>
+        <dt><span>Embargo Resp Re</span></dt>
+        <dd>
+          <span>{{ processo.embargoRespRe }}</span>
+        </dd>
+        <dt><span>Agravo Interno</span></dt>
+        <dd>
+          <span>{{ processo.agravoInterno }}</span>
+        </dd>
+        <dt><span>Folhas Agravo Interno</span></dt>
+        <dd>
+          <span>{{ processo.folhasAgravoInterno }}</span>
+        </dd>
+        <dt><span>Embargo Recurso Agravo</span></dt>
+        <dd>
+          <span>{{ processo.embargoRecursoAgravo }}</span>
+        </dd>
+        <dt><span>Observacoes</span></dt>
+        <dd>
+          <span>{{ processo.observacoes }}</span>
+        </dd>
+        <dt><span>Recurso STJ</span></dt>
+        <dd>
+          <span>{{ processo.recursoSTJ }}</span>
+        </dd>
+        <dt><span>Link Recurso STJ</span></dt>
+        <dd>
+          <span>{{ processo.linkRecursoSTJ }}</span>
+        </dd>
+        <dt><span>Folhas Recurso STJ</span></dt>
+        <dd>
+          <span>{{ processo.folhasRecursoSTJ }}</span>
+        </dd>
+        <dt><span>Recurso STF</span></dt>
+        <dd>
+          <span>{{ processo.recursoSTF }}</span>
+        </dd>
+        <dt><span>Link Recurso STF</span></dt>
+        <dd>
+          <span>{{ processo.linkRecursoSTF }}</span>
+        </dd>
+        <dt><span>Folhas Recurso STF</span></dt>
+        <dd>
+          <span>{{ processo.folhasRecursoSTF }}</span>
+        </dd>
+        <dt><span>Folhas Memorial MPF</span></dt>
+        <dd>
+          <span>{{ processo.folhasMemorialMPF }}</span>
+        </dd>
+        <dt><span>Execusao Provisoria</span></dt>
+        <dd>
+          <span>{{ processo.execusaoProvisoria }}</span>
+        </dd>
+        <dt><span>Numeracao Execusao Provisoria</span></dt>
+        <dd>
+          <span>{{ processo.numeracaoExecusaoProvisoria }}</span>
+        </dd>
+        <dt><span>Recuperacao Efetiva Cumprimento Sentenca</span></dt>
+        <dd>
+          <span>{{ processo.recuperacaoEfetivaCumprimentoSentenca }}</span>
+        </dd>
+        <dt><span>Recuperacao Efetiva Cumprimento Sentenca Observacoes</span></dt>
+        <dd>
+          <span>{{ processo.recuperacaoEfetivaCumprimentoSentencaObservacoes }}</span>
+        </dd>
+        <dt><span>Envolve Empreendimento</span></dt>
+        <dd>
+          <span>{{ processo.envolveEmpreendimento }}</span>
+        </dd>
+        <dt><span>Envolve Exploracao Ilegal</span></dt>
+        <dd>
+          <span>{{ processo.envolveExploracaoIlegal }}</span>
+        </dd>
+        <dt><span>Envolve Terra Quilombola</span></dt>
+        <dd>
+          <span>{{ processo.envolveTerraQuilombola }}</span>
+        </dd>
+        <dt><span>Envolve Terra Comunidade Tradicional</span></dt>
+        <dd>
+          <span>{{ processo.envolveTerraComunidadeTradicional }}</span>
+        </dd>
+        <dt><span>Envolve Terra Indigena</span></dt>
+        <dd>
+          <span>{{ processo.envolveTerraIndigena }}</span>
+        </dd>
+        <dt><span>Resumo Fatos</span></dt>
+        <dd>
+          <span>{{ processo.resumoFatos }}</span>
+        </dd>
+        <dt><span>Tamanho Area</span></dt>
+        <dd>
+          <span>{{ processo.tamanhoArea }}</span>
+        </dd>
+        <dt><span>Valor Area</span></dt>
+        <dd>
+          <span>{{ processo.valorArea }}</span>
+        </dd>
+        <dt><span>Tamanho Area Observacao</span></dt>
+        <dd>
+          <span>{{ processo.tamanhoAreaObservacao }}</span>
+        </dd>
+        <dt><span>Dados Geograficos Litigio Conflito</span></dt>
+        <dd>
+          <span>{{ processo.dadosGeograficosLitigioConflito }}</span>
+        </dd>
+        <dt><span>Latitude</span></dt>
+        <dd>
+          <span>{{ processo.latitude }}</span>
+        </dd>
+        <dt><span>Longitude</span></dt>
+        <dd>
+          <span>{{ processo.longitude }}</span>
+        </dd>
+        <dt><span>Numero Processo MPF</span></dt>
+        <dd>
+          <span>{{ processo.numeroProcessoMPF }}</span>
+        </dd>
+        <dt><span>Numero Embargo</span></dt>
+        <dd>
+          <span>{{ processo.numeroEmbargo }}</span>
+        </dd>
+        <dt><span>Pauta Apelacao</span></dt>
+        <dd>
+          <span>{{ processo.pautaApelacao }}</span>
+        </dd>
+        <dt><span>Numero Recurso Especial</span></dt>
+        <dd>
+          <span>{{ processo.numeroRecursoEspecial }}</span>
+        </dd>
+        <dt><span>Admissiblidade</span></dt>
+        <dd>
+          <span>{{ processo.admissiblidade }}</span>
+        </dd>
+        <dt><span>Envolve Grande Projeto</span></dt>
+        <dd>
+          <span>{{ processo.envolveGrandeProjeto }}</span>
+        </dd>
+        <dt><span>Envolve Unidade Conservacao</span></dt>
+        <dd>
+          <span>{{ processo.envolveUnidadeConservacao }}</span>
+        </dd>
+        <dt><span>Link Referencia</span></dt>
+        <dd>
+          <span>{{ processo.linkReferencia }}</span>
+        </dd>
+        <dt><span>Status Processo</span></dt>
+        <dd>
+          <span>{{ processo.statusProcesso }}</span>
+        </dd>
+        <dt><span>Tipo Decisao</span></dt>
+        <dd>
+          <div *ngIf="processo.tipoDecisao">
+            <a [routerLink]="['/tipo-decisao', processo.tipoDecisao?.id, 'view']">{{ processo.tipoDecisao?.descricao }}</a>
+          </div>
+        </dd>
+        <dt><span>Tipo Empreendimento</span></dt>
+        <dd>
+          <div *ngIf="processo.tipoEmpreendimento">
+            <a [routerLink]="['/tipo-empreendimento', processo.tipoEmpreendimento?.id, 'view']">{{
+              processo.tipoEmpreendimento?.descricao
+            }}</a>
+          </div>
+        </dd>
+        <dt><span>Secao Judiciaria</span></dt>
+        <dd>
+          <div *ngIf="processo.secaoJudiciaria">
+            <a [routerLink]="['/secao-judiciaria', processo.secaoJudiciaria?.id, 'view']">{{ processo.secaoJudiciaria?.nome }}</a>
+          </div>
+        </dd>
+        <dt><span>Comarca</span></dt>
+        <dd>
+          <span *ngFor="let comarca of processo.comarcas; let last = last">
+            <a [routerLink]="['/comarca', comarca?.id, 'view']">{{ comarca.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Municipio</span></dt>
+        <dd>
+          <span *ngFor="let municipio of processo.municipios; let last = last">
+            <a [routerLink]="['/municipio', municipio?.id, 'view']">{{ municipio.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Territorio</span></dt>
+        <dd>
+          <span *ngFor="let territorio of processo.territorios; let last = last">
+            <a [routerLink]="['/territorio', territorio?.id, 'view']">{{ territorio.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Atividade Exploracao Ilegal</span></dt>
+        <dd>
+          <span *ngFor="let atividadeExploracaoIlegal of processo.atividadeExploracaoIlegals; let last = last">
+            <a [routerLink]="['/atividade-exploracao-ilegal', atividadeExploracaoIlegal?.id, 'view']">{{
+              atividadeExploracaoIlegal.descricao
+            }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Unidade Conservacao</span></dt>
+        <dd>
+          <span *ngFor="let unidadeConservacao of processo.unidadeConservacaos; let last = last">
+            <a [routerLink]="['/unidade-conservacao', unidadeConservacao?.id, 'view']">{{ unidadeConservacao.descricao }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Envolvidos Conflito Litigio</span></dt>
+        <dd>
+          <span *ngFor="let envolvidosConflitoLitigio of processo.envolvidosConflitoLitigios; let last = last">
+            <a [routerLink]="['/envolvidos-conflito-litigio', envolvidosConflitoLitigio?.id, 'view']">{{ envolvidosConflitoLitigio.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Terra Indigena</span></dt>
+        <dd>
+          <span *ngFor="let terraIndigena of processo.terraIndigenas; let last = last">
+            <a [routerLink]="['/terra-indigena', terraIndigena?.id, 'view']">{{ terraIndigena.descricao }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Processo Conflito</span></dt>
+        <dd>
+          <span *ngFor="let processoConflito of processo.processoConflitos; let last = last">
+            <a [routerLink]="['/processo-conflito', processoConflito?.id, 'view']">{{ processoConflito.nomeCasoComuidade }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Parte Interesssada</span></dt>
+        <dd>
+          <span *ngFor="let parteInteresssada of processo.parteInteresssadas; let last = last">
+            <a [routerLink]="['/parte-interesssada', parteInteresssada?.id, 'view']">{{ parteInteresssada.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Relator</span></dt>
+        <dd>
+          <span *ngFor="let relator of processo.relators; let last = last">
+            <a [routerLink]="['/relator', relator?.id, 'view']">{{ relator.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span>Quilombo</span></dt>
+        <dd>
+          <span *ngFor="let quilombo of processo.quilombos; let last = last">
+            <a [routerLink]="['/quilombo', quilombo?.id, 'view']">{{ quilombo.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/processo', processo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

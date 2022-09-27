@@ -1,0 +1,29 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172437",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "atividade_exploracao_ilegal",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "AtividadeExploracaoIlegal",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "atividadeExploracaoIlegal",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

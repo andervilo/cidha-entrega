@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-recurso-heading" data-cy="RecursoCreateUpdateHeading">Create or edit a Recurso</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_observacoes">Observacoes</label>
+          <textarea
+            class="form-control"
+            name="observacoes"
+            id="field_observacoes"
+            data-cy="observacoes"
+            formControlName="observacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tipoRecurso">Tipo Recurso</label>
+          <select class="form-control" id="field_tipoRecurso" data-cy="tipoRecurso" name="tipoRecurso" formControlName="tipoRecurso">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoRecursoOption.id === editForm.get('tipoRecurso')!.value?.id ? editForm.get('tipoRecurso')!.value : tipoRecursoOption
+              "
+              *ngFor="let tipoRecursoOption of tipoRecursosCollection; trackBy: trackTipoRecursoById"
+            >
+              {{ tipoRecursoOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_opcaoRecurso">Opcao Recurso</label>
+          <select class="form-control" id="field_opcaoRecurso" data-cy="opcaoRecurso" name="opcaoRecurso" formControlName="opcaoRecurso">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                opcaoRecursoOption.id === editForm.get('opcaoRecurso')!.value?.id ? editForm.get('opcaoRecurso')!.value : opcaoRecursoOption
+              "
+              *ngFor="let opcaoRecursoOption of opcaoRecursosCollection; trackBy: trackOpcaoRecursoById"
+            >
+              {{ opcaoRecursoOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_processo">Processo</label>
+          <select class="form-control" id="field_processo" data-cy="processo" name="processo" formControlName="processo">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="processoOption.id === editForm.get('processo')!.value?.id ? editForm.get('processo')!.value : processoOption"
+              *ngFor="let processoOption of processosSharedCollection; trackBy: trackProcessoById"
+            >
+              {{ processoOption.oficio }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

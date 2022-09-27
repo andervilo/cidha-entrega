@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="representanteLegal">
+      <h2 data-cy="representanteLegalDetailsHeading"><span>Representante Legal</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ representanteLegal.id }}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+          <span>{{ representanteLegal.nome }}</span>
+        </dd>
+        <dt><span>Tipo Representante</span></dt>
+        <dd>
+          <div *ngIf="representanteLegal.tipoRepresentante">
+            <a [routerLink]="['/tipo-representante', representanteLegal.tipoRepresentante?.id, 'view']">{{
+              representanteLegal.tipoRepresentante?.descricao
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/representante-legal', representanteLegal.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

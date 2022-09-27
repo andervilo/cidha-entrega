@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-processo-conflito-heading" data-cy="ProcessoConflitoCreateUpdateHeading">Create or edit a Processo Conflito</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_inicioConflitoObservacoes">Inicio Conflito Observacoes</label>
+          <textarea
+            class="form-control"
+            name="inicioConflitoObservacoes"
+            id="field_inicioConflitoObservacoes"
+            data-cy="inicioConflitoObservacoes"
+            formControlName="inicioConflitoObservacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_historicoConlito">Historico Conlito</label>
+          <textarea
+            class="form-control"
+            name="historicoConlito"
+            id="field_historicoConlito"
+            data-cy="historicoConlito"
+            formControlName="historicoConlito"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_nomeCasoComuidade">Nome Caso Comuidade</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeCasoComuidade"
+            id="field_nomeCasoComuidade"
+            data-cy="nomeCasoComuidade"
+            formControlName="nomeCasoComuidade"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_consultaPrevia">Consulta Previa</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="consultaPrevia"
+            id="field_consultaPrevia"
+            data-cy="consultaPrevia"
+            formControlName="consultaPrevia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_direitos">Direito</label>
+          <select class="form-control" id="field_direitos" data-cy="direito" multiple name="direitos" formControlName="direitos">
+            <option
+              [ngValue]="getSelectedDireito(direitoOption, editForm.get('direitos')!.value)"
+              *ngFor="let direitoOption of direitosSharedCollection; trackBy: trackDireitoById"
+            >
+              {{ direitoOption.descricao }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

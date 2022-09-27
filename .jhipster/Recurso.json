@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172503",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "recurso",
+  "fields": [
+    {
+      "fieldName": "observacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Recurso",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "tipoRecurso",
+      "otherEntityRelationshipName": "recurso",
+      "ownerSide": true,
+      "relationshipName": "tipoRecurso",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "opcaoRecurso",
+      "otherEntityRelationshipName": "recurso",
+      "ownerSide": true,
+      "relationshipName": "opcaoRecurso",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "recurso",
+      "relationshipName": "processo",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

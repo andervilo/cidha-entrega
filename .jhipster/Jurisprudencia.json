@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172453",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "jurisprudencia",
+  "fields": [
+    {
+      "fieldName": "jurisprudenciaCitadaDescricao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasJurisprudenciaCitada",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "jurisprudenciaSugerida",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Jurisprudencia",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "problemaJuridico",
+      "otherEntityRelationshipName": "jurisprudencia",
+      "ownerSide": false,
+      "relationshipName": "problemaJuridico",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

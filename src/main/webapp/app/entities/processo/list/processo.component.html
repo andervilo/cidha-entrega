@@ -1,0 +1,288 @@
+<div>
+  <h2 id="page-heading" data-cy="ProcessoHeading">
+    <span>Processos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-processo"
+        [routerLink]="['/processo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Processo </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="processos?.length === 0">
+    <span>No processos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="processos && processos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroProcesso"><span>Numero Processo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="oficio"><span>Oficio</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="assunto"><span>Assunto</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="linkUnico"><span>Link Unico</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="linkTrf"><span>Link Trf</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="turmaTrf1"><span>Turma Trf 1</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroProcessoAdministrativo">
+            <span>Numero Processo Administrativo</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="numeroProcessoJudicialPrimeiraInstancia">
+            <span>Numero Processo Judicial Primeira Instancia</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="numeroProcessoJudicialPrimeiraInstanciaLink">
+            <span>Numero Processo Judicial Primeira Instancia Link</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="numeroProcessoJudicialPrimeiraInstanciaObservacoes">
+            <span>Numero Processo Judicial Primeira Instancia Observacoes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="parecer"><span>Parecer</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasProcessoConcessaoLiminar">
+            <span>Folhas Processo Concessao Liminar</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="concessaoLiminarObservacoes">
+            <span>Concessao Liminar Observacoes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="folhasProcessoCassacao"><span>Folhas Processo Cassacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasParecer"><span>Folhas Parecer</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasEmbargo"><span>Folhas Embargo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="acordaoEmbargo"><span>Acordao Embargo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasCienciaJulgEmbargos">
+            <span>Folhas Ciencia Julg Embargos</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="apelacao"><span>Apelacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasApelacao"><span>Folhas Apelacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="acordaoApelacao"><span>Acordao Apelacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasCienciaJulgApelacao">
+            <span>Folhas Ciencia Julg Apelacao</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="embargoDeclaracao"><span>Embargo Declaracao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="embargoRecursoExtraordinario">
+            <span>Embargo Recurso Extraordinario</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="folhasRecursoEspecial"><span>Folhas Recurso Especial</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="acordaoRecursoEspecial"><span>Acordao Recurso Especial</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasCienciaJulgamentoRecursoEspecial">
+            <span>Folhas Ciencia Julgamento Recurso Especial</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="embargoRecursoEspecial"><span>Embargo Recurso Especial</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasCiencia"><span>Folhas Ciencia</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="agravoRespRe"><span>Agravo Resp Re</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasRespRe"><span>Folhas Resp Re</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="acordaoAgravoRespRe"><span>Acordao Agravo Resp Re</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasCienciaJulgamentoAgravoRespRe">
+            <span>Folhas Ciencia Julgamento Agravo Resp Re</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="embargoRespRe"><span>Embargo Resp Re</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="agravoInterno"><span>Agravo Interno</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasAgravoInterno"><span>Folhas Agravo Interno</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="embargoRecursoAgravo"><span>Embargo Recurso Agravo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="observacoes"><span>Observacoes</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="recursoSTJ"><span>Recurso STJ</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="linkRecursoSTJ"><span>Link Recurso STJ</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasRecursoSTJ"><span>Folhas Recurso STJ</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="recursoSTF"><span>Recurso STF</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="linkRecursoSTF"><span>Link Recurso STF</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasRecursoSTF"><span>Folhas Recurso STF</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="folhasMemorialMPF"><span>Folhas Memorial MPF</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="execusaoProvisoria"><span>Execusao Provisoria</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeracaoExecusaoProvisoria">
+            <span>Numeracao Execusao Provisoria</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="recuperacaoEfetivaCumprimentoSentenca">
+            <span>Recuperacao Efetiva Cumprimento Sentenca</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="recuperacaoEfetivaCumprimentoSentencaObservacoes">
+            <span>Recuperacao Efetiva Cumprimento Sentenca Observacoes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="envolveEmpreendimento"><span>Envolve Empreendimento</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="envolveExploracaoIlegal"><span>Envolve Exploracao Ilegal</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="envolveTerraQuilombola"><span>Envolve Terra Quilombola</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="envolveTerraComunidadeTradicional">
+            <span>Envolve Terra Comunidade Tradicional</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="envolveTerraIndigena"><span>Envolve Terra Indigena</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="resumoFatos"><span>Resumo Fatos</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tamanhoArea"><span>Tamanho Area</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="valorArea"><span>Valor Area</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tamanhoAreaObservacao"><span>Tamanho Area Observacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dadosGeograficosLitigioConflito">
+            <span>Dados Geograficos Litigio Conflito</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="latitude"><span>Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="longitude"><span>Longitude</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroProcessoMPF"><span>Numero Processo MPF</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroEmbargo"><span>Numero Embargo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="pautaApelacao"><span>Pauta Apelacao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroRecursoEspecial"><span>Numero Recurso Especial</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="admissiblidade"><span>Admissiblidade</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="envolveGrandeProjeto"><span>Envolve Grande Projeto</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="envolveUnidadeConservacao">
+            <span>Envolve Unidade Conservacao</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="linkReferencia"><span>Link Referencia</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="statusProcesso"><span>Status Processo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tipoDecisao.descricao"><span>Tipo Decisao</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tipoEmpreendimento.descricao"><span>Tipo Empreendimento</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="secaoJudiciaria.nome"><span>Secao Judiciaria</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let processo of processos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/processo', processo.id, 'view']">{{ processo.id }}</a>
+          </td>
+          <td>{{ processo.numeroProcesso }}</td>
+          <td>{{ processo.oficio }}</td>
+          <td>{{ processo.assunto }}</td>
+          <td>{{ processo.linkUnico }}</td>
+          <td>{{ processo.linkTrf }}</td>
+          <td>{{ processo.turmaTrf1 }}</td>
+          <td>{{ processo.numeroProcessoAdministrativo }}</td>
+          <td>{{ processo.numeroProcessoJudicialPrimeiraInstancia }}</td>
+          <td>{{ processo.numeroProcessoJudicialPrimeiraInstanciaLink }}</td>
+          <td>{{ processo.numeroProcessoJudicialPrimeiraInstanciaObservacoes }}</td>
+          <td>{{ processo.parecer }}</td>
+          <td>{{ processo.folhasProcessoConcessaoLiminar }}</td>
+          <td>{{ processo.concessaoLiminarObservacoes }}</td>
+          <td>{{ processo.folhasProcessoCassacao }}</td>
+          <td>{{ processo.folhasParecer }}</td>
+          <td>{{ processo.folhasEmbargo }}</td>
+          <td>{{ processo.acordaoEmbargo }}</td>
+          <td>{{ processo.folhasCienciaJulgEmbargos }}</td>
+          <td>{{ processo.apelacao }}</td>
+          <td>{{ processo.folhasApelacao }}</td>
+          <td>{{ processo.acordaoApelacao }}</td>
+          <td>{{ processo.folhasCienciaJulgApelacao }}</td>
+          <td>{{ processo.embargoDeclaracao }}</td>
+          <td>{{ processo.embargoRecursoExtraordinario }}</td>
+          <td>{{ processo.folhasRecursoEspecial }}</td>
+          <td>{{ processo.acordaoRecursoEspecial }}</td>
+          <td>{{ processo.folhasCienciaJulgamentoRecursoEspecial }}</td>
+          <td>{{ processo.embargoRecursoEspecial }}</td>
+          <td>{{ processo.folhasCiencia }}</td>
+          <td>{{ processo.agravoRespRe }}</td>
+          <td>{{ processo.folhasRespRe }}</td>
+          <td>{{ processo.acordaoAgravoRespRe }}</td>
+          <td>{{ processo.folhasCienciaJulgamentoAgravoRespRe }}</td>
+          <td>{{ processo.embargoRespRe }}</td>
+          <td>{{ processo.agravoInterno }}</td>
+          <td>{{ processo.folhasAgravoInterno }}</td>
+          <td>{{ processo.embargoRecursoAgravo }}</td>
+          <td>{{ processo.observacoes }}</td>
+          <td>{{ processo.recursoSTJ }}</td>
+          <td>{{ processo.linkRecursoSTJ }}</td>
+          <td>{{ processo.folhasRecursoSTJ }}</td>
+          <td>{{ processo.recursoSTF }}</td>
+          <td>{{ processo.linkRecursoSTF }}</td>
+          <td>{{ processo.folhasRecursoSTF }}</td>
+          <td>{{ processo.folhasMemorialMPF }}</td>
+          <td>{{ processo.execusaoProvisoria }}</td>
+          <td>{{ processo.numeracaoExecusaoProvisoria }}</td>
+          <td>{{ processo.recuperacaoEfetivaCumprimentoSentenca }}</td>
+          <td>{{ processo.recuperacaoEfetivaCumprimentoSentencaObservacoes }}</td>
+          <td>{{ processo.envolveEmpreendimento }}</td>
+          <td>{{ processo.envolveExploracaoIlegal }}</td>
+          <td>{{ processo.envolveTerraQuilombola }}</td>
+          <td>{{ processo.envolveTerraComunidadeTradicional }}</td>
+          <td>{{ processo.envolveTerraIndigena }}</td>
+          <td>{{ processo.resumoFatos }}</td>
+          <td>{{ processo.tamanhoArea }}</td>
+          <td>{{ processo.valorArea }}</td>
+          <td>{{ processo.tamanhoAreaObservacao }}</td>
+          <td>{{ processo.dadosGeograficosLitigioConflito }}</td>
+          <td>{{ processo.latitude }}</td>
+          <td>{{ processo.longitude }}</td>
+          <td>{{ processo.numeroProcessoMPF }}</td>
+          <td>{{ processo.numeroEmbargo }}</td>
+          <td>{{ processo.pautaApelacao }}</td>
+          <td>{{ processo.numeroRecursoEspecial }}</td>
+          <td>{{ processo.admissiblidade }}</td>
+          <td>{{ processo.envolveGrandeProjeto }}</td>
+          <td>{{ processo.envolveUnidadeConservacao }}</td>
+          <td>{{ processo.linkReferencia }}</td>
+          <td>{{ processo.statusProcesso }}</td>
+          <td>
+            <div *ngIf="processo.tipoDecisao">
+              <a [routerLink]="['/tipo-decisao', processo.tipoDecisao?.id, 'view']">{{ processo.tipoDecisao?.descricao }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="processo.tipoEmpreendimento">
+              <a [routerLink]="['/tipo-empreendimento', processo.tipoEmpreendimento?.id, 'view']">{{
+                processo.tipoEmpreendimento?.descricao
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="processo.secaoJudiciaria">
+              <a [routerLink]="['/secao-judiciaria', processo.secaoJudiciaria?.id, 'view']">{{ processo.secaoJudiciaria?.nome }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/processo', processo.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/processo', processo.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(processo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="processos && processos.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

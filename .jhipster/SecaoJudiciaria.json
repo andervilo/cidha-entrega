@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172458",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "secao_judiciaria",
+  "fields": [
+    {
+      "fieldName": "sigla",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SecaoJudiciaria",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "subsecaoJudiciaria",
+      "otherEntityRelationshipName": "secaoJudiciaria",
+      "relationshipName": "subsecaoJudiciaria",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

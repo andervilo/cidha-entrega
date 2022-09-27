@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172509",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_decisao",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TipoDecisao",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

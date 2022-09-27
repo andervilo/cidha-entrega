@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172447",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "embargo_resp_re",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EmbargoRespRe",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "embargoRespRe",
+      "relationshipName": "processo",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

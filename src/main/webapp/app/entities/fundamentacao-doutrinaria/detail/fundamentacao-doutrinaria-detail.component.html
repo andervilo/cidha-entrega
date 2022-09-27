@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fundamentacaoDoutrinaria">
+      <h2 data-cy="fundamentacaoDoutrinariaDetailsHeading"><span>Fundamentacao Doutrinaria</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ fundamentacaoDoutrinaria.id }}</span>
+        </dd>
+        <dt><span>Fundamentacao Doutrinaria Citada</span></dt>
+        <dd>
+          <span>{{ fundamentacaoDoutrinaria.fundamentacaoDoutrinariaCitada }}</span>
+        </dd>
+        <dt><span>Folhas Fundamentacao Doutrinaria</span></dt>
+        <dd>
+          <span>{{ fundamentacaoDoutrinaria.folhasFundamentacaoDoutrinaria }}</span>
+        </dd>
+        <dt><span>Fundamentacao Doutrinaria Sugerida</span></dt>
+        <dd>
+          <span>{{ fundamentacaoDoutrinaria.fundamentacaoDoutrinariaSugerida }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fundamentacao-doutrinaria', fundamentacaoDoutrinaria.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

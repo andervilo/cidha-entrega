@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="processoConflito">
+      <h2 data-cy="processoConflitoDetailsHeading"><span>Processo Conflito</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ processoConflito.id }}</span>
+        </dd>
+        <dt><span>Inicio Conflito Observacoes</span></dt>
+        <dd>
+          <span>{{ processoConflito.inicioConflitoObservacoes }}</span>
+        </dd>
+        <dt><span>Historico Conlito</span></dt>
+        <dd>
+          <span>{{ processoConflito.historicoConlito }}</span>
+        </dd>
+        <dt><span>Nome Caso Comuidade</span></dt>
+        <dd>
+          <span>{{ processoConflito.nomeCasoComuidade }}</span>
+        </dd>
+        <dt><span>Consulta Previa</span></dt>
+        <dd>
+          <span>{{ processoConflito.consultaPrevia }}</span>
+        </dd>
+        <dt><span>Direito</span></dt>
+        <dd>
+          <span *ngFor="let direito of processoConflito.direitos; let last = last">
+            <a [routerLink]="['/direito', direito?.id, 'view']">{{ direito.descricao }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/processo-conflito', processoConflito.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

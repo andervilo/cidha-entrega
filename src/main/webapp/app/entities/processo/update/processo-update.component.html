@@ -1,0 +1,1048 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-processo-heading" data-cy="ProcessoCreateUpdateHeading">Create or edit a Processo</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcesso">Numero Processo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroProcesso"
+            id="field_numeroProcesso"
+            data-cy="numeroProcesso"
+            formControlName="numeroProcesso"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_oficio">Oficio</label>
+          <input type="text" class="form-control" name="oficio" id="field_oficio" data-cy="oficio" formControlName="oficio" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_assunto">Assunto</label>
+          <textarea class="form-control" name="assunto" id="field_assunto" data-cy="assunto" formControlName="assunto"></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_linkUnico">Link Unico</label>
+          <input type="text" class="form-control" name="linkUnico" id="field_linkUnico" data-cy="linkUnico" formControlName="linkUnico" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_linkTrf">Link Trf</label>
+          <input type="text" class="form-control" name="linkTrf" id="field_linkTrf" data-cy="linkTrf" formControlName="linkTrf" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_turmaTrf1">Turma Trf 1</label>
+          <input type="text" class="form-control" name="turmaTrf1" id="field_turmaTrf1" data-cy="turmaTrf1" formControlName="turmaTrf1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcessoAdministrativo">Numero Processo Administrativo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroProcessoAdministrativo"
+            id="field_numeroProcessoAdministrativo"
+            data-cy="numeroProcessoAdministrativo"
+            formControlName="numeroProcessoAdministrativo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcessoJudicialPrimeiraInstancia">Numero Processo Judicial Primeira Instancia</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroProcessoJudicialPrimeiraInstancia"
+            id="field_numeroProcessoJudicialPrimeiraInstancia"
+            data-cy="numeroProcessoJudicialPrimeiraInstancia"
+            formControlName="numeroProcessoJudicialPrimeiraInstancia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcessoJudicialPrimeiraInstanciaLink"
+            >Numero Processo Judicial Primeira Instancia Link</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numeroProcessoJudicialPrimeiraInstanciaLink"
+            id="field_numeroProcessoJudicialPrimeiraInstanciaLink"
+            data-cy="numeroProcessoJudicialPrimeiraInstanciaLink"
+            formControlName="numeroProcessoJudicialPrimeiraInstanciaLink"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcessoJudicialPrimeiraInstanciaObservacoes"
+            >Numero Processo Judicial Primeira Instancia Observacoes</label
+          >
+          <textarea
+            class="form-control"
+            name="numeroProcessoJudicialPrimeiraInstanciaObservacoes"
+            id="field_numeroProcessoJudicialPrimeiraInstanciaObservacoes"
+            data-cy="numeroProcessoJudicialPrimeiraInstanciaObservacoes"
+            formControlName="numeroProcessoJudicialPrimeiraInstanciaObservacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_parecer">Parecer</label>
+          <input type="checkbox" class="form-check" name="parecer" id="field_parecer" data-cy="parecer" formControlName="parecer" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasProcessoConcessaoLiminar">Folhas Processo Concessao Liminar</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasProcessoConcessaoLiminar"
+            id="field_folhasProcessoConcessaoLiminar"
+            data-cy="folhasProcessoConcessaoLiminar"
+            formControlName="folhasProcessoConcessaoLiminar"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_concessaoLiminarObservacoes">Concessao Liminar Observacoes</label>
+          <textarea
+            class="form-control"
+            name="concessaoLiminarObservacoes"
+            id="field_concessaoLiminarObservacoes"
+            data-cy="concessaoLiminarObservacoes"
+            formControlName="concessaoLiminarObservacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasProcessoCassacao">Folhas Processo Cassacao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasProcessoCassacao"
+            id="field_folhasProcessoCassacao"
+            data-cy="folhasProcessoCassacao"
+            formControlName="folhasProcessoCassacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasParecer">Folhas Parecer</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasParecer"
+            id="field_folhasParecer"
+            data-cy="folhasParecer"
+            formControlName="folhasParecer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasEmbargo">Folhas Embargo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasEmbargo"
+            id="field_folhasEmbargo"
+            data-cy="folhasEmbargo"
+            formControlName="folhasEmbargo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_acordaoEmbargo">Acordao Embargo</label>
+          <textarea
+            class="form-control"
+            name="acordaoEmbargo"
+            id="field_acordaoEmbargo"
+            data-cy="acordaoEmbargo"
+            formControlName="acordaoEmbargo"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasCienciaJulgEmbargos">Folhas Ciencia Julg Embargos</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasCienciaJulgEmbargos"
+            id="field_folhasCienciaJulgEmbargos"
+            data-cy="folhasCienciaJulgEmbargos"
+            formControlName="folhasCienciaJulgEmbargos"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_apelacao">Apelacao</label>
+          <input type="text" class="form-control" name="apelacao" id="field_apelacao" data-cy="apelacao" formControlName="apelacao" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasApelacao">Folhas Apelacao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasApelacao"
+            id="field_folhasApelacao"
+            data-cy="folhasApelacao"
+            formControlName="folhasApelacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_acordaoApelacao">Acordao Apelacao</label>
+          <textarea
+            class="form-control"
+            name="acordaoApelacao"
+            id="field_acordaoApelacao"
+            data-cy="acordaoApelacao"
+            formControlName="acordaoApelacao"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasCienciaJulgApelacao">Folhas Ciencia Julg Apelacao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasCienciaJulgApelacao"
+            id="field_folhasCienciaJulgApelacao"
+            data-cy="folhasCienciaJulgApelacao"
+            formControlName="folhasCienciaJulgApelacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_embargoDeclaracao">Embargo Declaracao</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="embargoDeclaracao"
+            id="field_embargoDeclaracao"
+            data-cy="embargoDeclaracao"
+            formControlName="embargoDeclaracao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_embargoRecursoExtraordinario">Embargo Recurso Extraordinario</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="embargoRecursoExtraordinario"
+            id="field_embargoRecursoExtraordinario"
+            data-cy="embargoRecursoExtraordinario"
+            formControlName="embargoRecursoExtraordinario"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasRecursoEspecial">Folhas Recurso Especial</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasRecursoEspecial"
+            id="field_folhasRecursoEspecial"
+            data-cy="folhasRecursoEspecial"
+            formControlName="folhasRecursoEspecial"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_acordaoRecursoEspecial">Acordao Recurso Especial</label>
+          <textarea
+            class="form-control"
+            name="acordaoRecursoEspecial"
+            id="field_acordaoRecursoEspecial"
+            data-cy="acordaoRecursoEspecial"
+            formControlName="acordaoRecursoEspecial"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasCienciaJulgamentoRecursoEspecial">Folhas Ciencia Julgamento Recurso Especial</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasCienciaJulgamentoRecursoEspecial"
+            id="field_folhasCienciaJulgamentoRecursoEspecial"
+            data-cy="folhasCienciaJulgamentoRecursoEspecial"
+            formControlName="folhasCienciaJulgamentoRecursoEspecial"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_embargoRecursoEspecial">Embargo Recurso Especial</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="embargoRecursoEspecial"
+            id="field_embargoRecursoEspecial"
+            data-cy="embargoRecursoEspecial"
+            formControlName="embargoRecursoEspecial"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasCiencia">Folhas Ciencia</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasCiencia"
+            id="field_folhasCiencia"
+            data-cy="folhasCiencia"
+            formControlName="folhasCiencia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_agravoRespRe">Agravo Resp Re</label>
+          <input
+            type="text"
+            class="form-control"
+            name="agravoRespRe"
+            id="field_agravoRespRe"
+            data-cy="agravoRespRe"
+            formControlName="agravoRespRe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasRespRe">Folhas Resp Re</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasRespRe"
+            id="field_folhasRespRe"
+            data-cy="folhasRespRe"
+            formControlName="folhasRespRe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_acordaoAgravoRespRe">Acordao Agravo Resp Re</label>
+          <textarea
+            class="form-control"
+            name="acordaoAgravoRespRe"
+            id="field_acordaoAgravoRespRe"
+            data-cy="acordaoAgravoRespRe"
+            formControlName="acordaoAgravoRespRe"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasCienciaJulgamentoAgravoRespRe">Folhas Ciencia Julgamento Agravo Resp Re</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasCienciaJulgamentoAgravoRespRe"
+            id="field_folhasCienciaJulgamentoAgravoRespRe"
+            data-cy="folhasCienciaJulgamentoAgravoRespRe"
+            formControlName="folhasCienciaJulgamentoAgravoRespRe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_embargoRespRe">Embargo Resp Re</label>
+          <input
+            type="text"
+            class="form-control"
+            name="embargoRespRe"
+            id="field_embargoRespRe"
+            data-cy="embargoRespRe"
+            formControlName="embargoRespRe"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_agravoInterno">Agravo Interno</label>
+          <input
+            type="text"
+            class="form-control"
+            name="agravoInterno"
+            id="field_agravoInterno"
+            data-cy="agravoInterno"
+            formControlName="agravoInterno"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasAgravoInterno">Folhas Agravo Interno</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasAgravoInterno"
+            id="field_folhasAgravoInterno"
+            data-cy="folhasAgravoInterno"
+            formControlName="folhasAgravoInterno"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_embargoRecursoAgravo">Embargo Recurso Agravo</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="embargoRecursoAgravo"
+            id="field_embargoRecursoAgravo"
+            data-cy="embargoRecursoAgravo"
+            formControlName="embargoRecursoAgravo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_observacoes">Observacoes</label>
+          <textarea
+            class="form-control"
+            name="observacoes"
+            id="field_observacoes"
+            data-cy="observacoes"
+            formControlName="observacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_recursoSTJ">Recurso STJ</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="recursoSTJ"
+            id="field_recursoSTJ"
+            data-cy="recursoSTJ"
+            formControlName="recursoSTJ"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_linkRecursoSTJ">Link Recurso STJ</label>
+          <input
+            type="text"
+            class="form-control"
+            name="linkRecursoSTJ"
+            id="field_linkRecursoSTJ"
+            data-cy="linkRecursoSTJ"
+            formControlName="linkRecursoSTJ"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasRecursoSTJ">Folhas Recurso STJ</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasRecursoSTJ"
+            id="field_folhasRecursoSTJ"
+            data-cy="folhasRecursoSTJ"
+            formControlName="folhasRecursoSTJ"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_recursoSTF">Recurso STF</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="recursoSTF"
+            id="field_recursoSTF"
+            data-cy="recursoSTF"
+            formControlName="recursoSTF"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_linkRecursoSTF">Link Recurso STF</label>
+          <input
+            type="text"
+            class="form-control"
+            name="linkRecursoSTF"
+            id="field_linkRecursoSTF"
+            data-cy="linkRecursoSTF"
+            formControlName="linkRecursoSTF"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasRecursoSTF">Folhas Recurso STF</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasRecursoSTF"
+            id="field_folhasRecursoSTF"
+            data-cy="folhasRecursoSTF"
+            formControlName="folhasRecursoSTF"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_folhasMemorialMPF">Folhas Memorial MPF</label>
+          <input
+            type="text"
+            class="form-control"
+            name="folhasMemorialMPF"
+            id="field_folhasMemorialMPF"
+            data-cy="folhasMemorialMPF"
+            formControlName="folhasMemorialMPF"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_execusaoProvisoria">Execusao Provisoria</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="execusaoProvisoria"
+            id="field_execusaoProvisoria"
+            data-cy="execusaoProvisoria"
+            formControlName="execusaoProvisoria"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeracaoExecusaoProvisoria">Numeracao Execusao Provisoria</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeracaoExecusaoProvisoria"
+            id="field_numeracaoExecusaoProvisoria"
+            data-cy="numeracaoExecusaoProvisoria"
+            formControlName="numeracaoExecusaoProvisoria"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_recuperacaoEfetivaCumprimentoSentenca">Recuperacao Efetiva Cumprimento Sentenca</label>
+          <textarea
+            class="form-control"
+            name="recuperacaoEfetivaCumprimentoSentenca"
+            id="field_recuperacaoEfetivaCumprimentoSentenca"
+            data-cy="recuperacaoEfetivaCumprimentoSentenca"
+            formControlName="recuperacaoEfetivaCumprimentoSentenca"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_recuperacaoEfetivaCumprimentoSentencaObservacoes"
+            >Recuperacao Efetiva Cumprimento Sentenca Observacoes</label
+          >
+          <textarea
+            class="form-control"
+            name="recuperacaoEfetivaCumprimentoSentencaObservacoes"
+            id="field_recuperacaoEfetivaCumprimentoSentencaObservacoes"
+            data-cy="recuperacaoEfetivaCumprimentoSentencaObservacoes"
+            formControlName="recuperacaoEfetivaCumprimentoSentencaObservacoes"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveEmpreendimento">Envolve Empreendimento</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveEmpreendimento"
+            id="field_envolveEmpreendimento"
+            data-cy="envolveEmpreendimento"
+            formControlName="envolveEmpreendimento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveExploracaoIlegal">Envolve Exploracao Ilegal</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveExploracaoIlegal"
+            id="field_envolveExploracaoIlegal"
+            data-cy="envolveExploracaoIlegal"
+            formControlName="envolveExploracaoIlegal"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveTerraQuilombola">Envolve Terra Quilombola</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveTerraQuilombola"
+            id="field_envolveTerraQuilombola"
+            data-cy="envolveTerraQuilombola"
+            formControlName="envolveTerraQuilombola"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveTerraComunidadeTradicional">Envolve Terra Comunidade Tradicional</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveTerraComunidadeTradicional"
+            id="field_envolveTerraComunidadeTradicional"
+            data-cy="envolveTerraComunidadeTradicional"
+            formControlName="envolveTerraComunidadeTradicional"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveTerraIndigena">Envolve Terra Indigena</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveTerraIndigena"
+            id="field_envolveTerraIndigena"
+            data-cy="envolveTerraIndigena"
+            formControlName="envolveTerraIndigena"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_resumoFatos">Resumo Fatos</label>
+          <textarea
+            class="form-control"
+            name="resumoFatos"
+            id="field_resumoFatos"
+            data-cy="resumoFatos"
+            formControlName="resumoFatos"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tamanhoArea">Tamanho Area</label>
+          <input
+            type="number"
+            class="form-control"
+            name="tamanhoArea"
+            id="field_tamanhoArea"
+            data-cy="tamanhoArea"
+            formControlName="tamanhoArea"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_valorArea">Valor Area</label>
+          <input type="number" class="form-control" name="valorArea" id="field_valorArea" data-cy="valorArea" formControlName="valorArea" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tamanhoAreaObservacao">Tamanho Area Observacao</label>
+          <textarea
+            class="form-control"
+            name="tamanhoAreaObservacao"
+            id="field_tamanhoAreaObservacao"
+            data-cy="tamanhoAreaObservacao"
+            formControlName="tamanhoAreaObservacao"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_dadosGeograficosLitigioConflito">Dados Geograficos Litigio Conflito</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="dadosGeograficosLitigioConflito"
+            id="field_dadosGeograficosLitigioConflito"
+            data-cy="dadosGeograficosLitigioConflito"
+            formControlName="dadosGeograficosLitigioConflito"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_latitude">Latitude</label>
+          <input type="text" class="form-control" name="latitude" id="field_latitude" data-cy="latitude" formControlName="latitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_longitude">Longitude</label>
+          <input type="text" class="form-control" name="longitude" id="field_longitude" data-cy="longitude" formControlName="longitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroProcessoMPF">Numero Processo MPF</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroProcessoMPF"
+            id="field_numeroProcessoMPF"
+            data-cy="numeroProcessoMPF"
+            formControlName="numeroProcessoMPF"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroEmbargo">Numero Embargo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroEmbargo"
+            id="field_numeroEmbargo"
+            data-cy="numeroEmbargo"
+            formControlName="numeroEmbargo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_pautaApelacao">Pauta Apelacao</label>
+          <textarea
+            class="form-control"
+            name="pautaApelacao"
+            id="field_pautaApelacao"
+            data-cy="pautaApelacao"
+            formControlName="pautaApelacao"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_numeroRecursoEspecial">Numero Recurso Especial</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroRecursoEspecial"
+            id="field_numeroRecursoEspecial"
+            data-cy="numeroRecursoEspecial"
+            formControlName="numeroRecursoEspecial"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_admissiblidade">Admissiblidade</label>
+          <textarea
+            class="form-control"
+            name="admissiblidade"
+            id="field_admissiblidade"
+            data-cy="admissiblidade"
+            formControlName="admissiblidade"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveGrandeProjeto">Envolve Grande Projeto</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveGrandeProjeto"
+            id="field_envolveGrandeProjeto"
+            data-cy="envolveGrandeProjeto"
+            formControlName="envolveGrandeProjeto"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_envolveUnidadeConservacao">Envolve Unidade Conservacao</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="envolveUnidadeConservacao"
+            id="field_envolveUnidadeConservacao"
+            data-cy="envolveUnidadeConservacao"
+            formControlName="envolveUnidadeConservacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_linkReferencia">Link Referencia</label>
+          <textarea
+            class="form-control"
+            name="linkReferencia"
+            id="field_linkReferencia"
+            data-cy="linkReferencia"
+            formControlName="linkReferencia"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_statusProcesso">Status Processo</label>
+          <select
+            class="form-control"
+            name="statusProcesso"
+            formControlName="statusProcesso"
+            id="field_statusProcesso"
+            data-cy="statusProcesso"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let statusProcesso of statusProcessoValues" [value]="statusProcesso">statusProcesso</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tipoDecisao">Tipo Decisao</label>
+          <select class="form-control" id="field_tipoDecisao" data-cy="tipoDecisao" name="tipoDecisao" formControlName="tipoDecisao">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoDecisaoOption.id === editForm.get('tipoDecisao')!.value?.id ? editForm.get('tipoDecisao')!.value : tipoDecisaoOption
+              "
+              *ngFor="let tipoDecisaoOption of tipoDecisaosSharedCollection; trackBy: trackTipoDecisaoById"
+            >
+              {{ tipoDecisaoOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tipoEmpreendimento">Tipo Empreendimento</label>
+          <select
+            class="form-control"
+            id="field_tipoEmpreendimento"
+            data-cy="tipoEmpreendimento"
+            name="tipoEmpreendimento"
+            formControlName="tipoEmpreendimento"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoEmpreendimentoOption.id === editForm.get('tipoEmpreendimento')!.value?.id
+                  ? editForm.get('tipoEmpreendimento')!.value
+                  : tipoEmpreendimentoOption
+              "
+              *ngFor="let tipoEmpreendimentoOption of tipoEmpreendimentosSharedCollection; trackBy: trackTipoEmpreendimentoById"
+            >
+              {{ tipoEmpreendimentoOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_secaoJudiciaria">Secao Judiciaria</label>
+          <select
+            class="form-control"
+            id="field_secaoJudiciaria"
+            data-cy="secaoJudiciaria"
+            name="secaoJudiciaria"
+            formControlName="secaoJudiciaria"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                secaoJudiciariaOption.id === editForm.get('secaoJudiciaria')!.value?.id
+                  ? editForm.get('secaoJudiciaria')!.value
+                  : secaoJudiciariaOption
+              "
+              *ngFor="let secaoJudiciariaOption of secaoJudiciariasSharedCollection; trackBy: trackSecaoJudiciariaById"
+            >
+              {{ secaoJudiciariaOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_comarcas">Comarca</label>
+          <select class="form-control" id="field_comarcas" data-cy="comarca" multiple name="comarcas" formControlName="comarcas">
+            <option
+              [ngValue]="getSelectedComarca(comarcaOption, editForm.get('comarcas')!.value)"
+              *ngFor="let comarcaOption of comarcasSharedCollection; trackBy: trackComarcaById"
+            >
+              {{ comarcaOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_municipios">Municipio</label>
+          <select class="form-control" id="field_municipios" data-cy="municipio" multiple name="municipios" formControlName="municipios">
+            <option
+              [ngValue]="getSelectedMunicipio(municipioOption, editForm.get('municipios')!.value)"
+              *ngFor="let municipioOption of municipiosSharedCollection; trackBy: trackMunicipioById"
+            >
+              {{ municipioOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_territorios">Territorio</label>
+          <select
+            class="form-control"
+            id="field_territorios"
+            data-cy="territorio"
+            multiple
+            name="territorios"
+            formControlName="territorios"
+          >
+            <option
+              [ngValue]="getSelectedTerritorio(territorioOption, editForm.get('territorios')!.value)"
+              *ngFor="let territorioOption of territoriosSharedCollection; trackBy: trackTerritorioById"
+            >
+              {{ territorioOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_atividadeExploracaoIlegals">Atividade Exploracao Ilegal</label>
+          <select
+            class="form-control"
+            id="field_atividadeExploracaoIlegals"
+            data-cy="atividadeExploracaoIlegal"
+            multiple
+            name="atividadeExploracaoIlegals"
+            formControlName="atividadeExploracaoIlegals"
+          >
+            <option
+              [ngValue]="
+                getSelectedAtividadeExploracaoIlegal(atividadeExploracaoIlegalOption, editForm.get('atividadeExploracaoIlegals')!.value)
+              "
+              *ngFor="
+                let atividadeExploracaoIlegalOption of atividadeExploracaoIlegalsSharedCollection;
+                trackBy: trackAtividadeExploracaoIlegalById
+              "
+            >
+              {{ atividadeExploracaoIlegalOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_unidadeConservacaos">Unidade Conservacao</label>
+          <select
+            class="form-control"
+            id="field_unidadeConservacaos"
+            data-cy="unidadeConservacao"
+            multiple
+            name="unidadeConservacaos"
+            formControlName="unidadeConservacaos"
+          >
+            <option
+              [ngValue]="getSelectedUnidadeConservacao(unidadeConservacaoOption, editForm.get('unidadeConservacaos')!.value)"
+              *ngFor="let unidadeConservacaoOption of unidadeConservacaosSharedCollection; trackBy: trackUnidadeConservacaoById"
+            >
+              {{ unidadeConservacaoOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_envolvidosConflitoLitigios">Envolvidos Conflito Litigio</label>
+          <select
+            class="form-control"
+            id="field_envolvidosConflitoLitigios"
+            data-cy="envolvidosConflitoLitigio"
+            multiple
+            name="envolvidosConflitoLitigios"
+            formControlName="envolvidosConflitoLitigios"
+          >
+            <option
+              [ngValue]="
+                getSelectedEnvolvidosConflitoLitigio(envolvidosConflitoLitigioOption, editForm.get('envolvidosConflitoLitigios')!.value)
+              "
+              *ngFor="
+                let envolvidosConflitoLitigioOption of envolvidosConflitoLitigiosSharedCollection;
+                trackBy: trackEnvolvidosConflitoLitigioById
+              "
+            >
+              {{ envolvidosConflitoLitigioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_terraIndigenas">Terra Indigena</label>
+          <select
+            class="form-control"
+            id="field_terraIndigenas"
+            data-cy="terraIndigena"
+            multiple
+            name="terraIndigenas"
+            formControlName="terraIndigenas"
+          >
+            <option
+              [ngValue]="getSelectedTerraIndigena(terraIndigenaOption, editForm.get('terraIndigenas')!.value)"
+              *ngFor="let terraIndigenaOption of terraIndigenasSharedCollection; trackBy: trackTerraIndigenaById"
+            >
+              {{ terraIndigenaOption.descricao }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_processoConflitos">Processo Conflito</label>
+          <select
+            class="form-control"
+            id="field_processoConflitos"
+            data-cy="processoConflito"
+            multiple
+            name="processoConflitos"
+            formControlName="processoConflitos"
+          >
+            <option
+              [ngValue]="getSelectedProcessoConflito(processoConflitoOption, editForm.get('processoConflitos')!.value)"
+              *ngFor="let processoConflitoOption of processoConflitosSharedCollection; trackBy: trackProcessoConflitoById"
+            >
+              {{ processoConflitoOption.nomeCasoComuidade }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_parteInteresssadas">Parte Interesssada</label>
+          <select
+            class="form-control"
+            id="field_parteInteresssadas"
+            data-cy="parteInteresssada"
+            multiple
+            name="parteInteresssadas"
+            formControlName="parteInteresssadas"
+          >
+            <option
+              [ngValue]="getSelectedParteInteresssada(parteInteresssadaOption, editForm.get('parteInteresssadas')!.value)"
+              *ngFor="let parteInteresssadaOption of parteInteresssadasSharedCollection; trackBy: trackParteInteresssadaById"
+            >
+              {{ parteInteresssadaOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_relators">Relator</label>
+          <select class="form-control" id="field_relators" data-cy="relator" multiple name="relators" formControlName="relators">
+            <option
+              [ngValue]="getSelectedRelator(relatorOption, editForm.get('relators')!.value)"
+              *ngFor="let relatorOption of relatorsSharedCollection; trackBy: trackRelatorById"
+            >
+              {{ relatorOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="field_quilombos">Quilombo</label>
+          <select class="form-control" id="field_quilombos" data-cy="quilombo" multiple name="quilombos" formControlName="quilombos">
+            <option
+              [ngValue]="getSelectedQuilombo(quilomboOption, editForm.get('quilombos')!.value)"
+              *ngFor="let quilomboOption of quilombosSharedCollection; trackBy: trackQuilomboById"
+            >
+              {{ quilomboOption.nome }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

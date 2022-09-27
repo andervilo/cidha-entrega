@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="RecursoHeading">
+    <span>Recursos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-recurso"
+        [routerLink]="['/recurso/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Recurso </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="recursos?.length === 0">
+    <span>No recursos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="recursos && recursos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="observacoes"><span>Observacoes</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tipoRecurso.descricao"><span>Tipo Recurso</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="opcaoRecurso.descricao"><span>Opcao Recurso</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="processo.oficio"><span>Processo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recurso of recursos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/recurso', recurso.id, 'view']">{{ recurso.id }}</a>
+          </td>
+          <td>{{ recurso.observacoes }}</td>
+          <td>
+            <div *ngIf="recurso.tipoRecurso">
+              <a [routerLink]="['/tipo-recurso', recurso.tipoRecurso?.id, 'view']">{{ recurso.tipoRecurso?.descricao }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="recurso.opcaoRecurso">
+              <a [routerLink]="['/opcao-recurso', recurso.opcaoRecurso?.id, 'view']">{{ recurso.opcaoRecurso?.descricao }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="recurso.processo">
+              <a [routerLink]="['/processo', recurso.processo?.id, 'view']">{{ recurso.processo?.oficio }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/recurso', recurso.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/recurso', recurso.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(recurso)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="recursos && recursos.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

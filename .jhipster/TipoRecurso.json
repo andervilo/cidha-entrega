@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172511",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_recurso",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TipoRecurso",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

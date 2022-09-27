@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172506",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "terra_indigena",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TerraIndigena",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "etniaIndigena",
+      "otherEntityRelationshipName": "terraIndigena",
+      "ownerSide": true,
+      "relationshipName": "etnia",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "terraIndigena",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172439",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "concessao_liminar",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ConcessaoLiminar",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "concessaoLiminar",
+      "relationshipName": "processo",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

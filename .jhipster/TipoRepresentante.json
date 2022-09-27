@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172512",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_representante",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TipoRepresentante",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

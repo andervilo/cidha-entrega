@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="concessaoLiminar">
+      <h2 data-cy="concessaoLiminarDetailsHeading"><span>Concessao Liminar</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ concessaoLiminar.id }}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+          <span>{{ concessaoLiminar.descricao }}</span>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <div *ngIf="concessaoLiminar.processo">
+            <a [routerLink]="['/processo', concessaoLiminar.processo?.id, 'view']">{{ concessaoLiminar.processo?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/concessao-liminar', concessaoLiminar.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

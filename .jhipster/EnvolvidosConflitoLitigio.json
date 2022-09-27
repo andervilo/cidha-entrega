@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172448",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "envolvidos_conflito_litigio",
+  "fields": [
+    {
+      "fieldName": "numeroIndividuos",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "fonteInformacaoQtde",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "observacoes",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EnvolvidosConflitoLitigio",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "oficio",
+      "otherEntityName": "processo",
+      "otherEntityRelationshipName": "envolvidosConflitoLitigio",
+      "ownerSide": false,
+      "relationshipName": "processo",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

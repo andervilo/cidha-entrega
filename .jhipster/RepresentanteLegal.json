@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172505",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "representante_legal",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "RepresentanteLegal",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "descricao",
+      "otherEntityName": "tipoRepresentante",
+      "otherEntityRelationshipName": "representanteLegal",
+      "relationshipName": "tipoRepresentante",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nomeCasoComuidade",
+      "otherEntityName": "parteInteresssada",
+      "otherEntityRelationshipName": "representanteLegal",
+      "ownerSide": false,
+      "relationshipName": "processoConflito",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="recurso">
+      <h2 data-cy="recursoDetailsHeading"><span>Recurso</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ recurso.id }}</span>
+        </dd>
+        <dt><span>Observacoes</span></dt>
+        <dd>
+          <span>{{ recurso.observacoes }}</span>
+        </dd>
+        <dt><span>Tipo Recurso</span></dt>
+        <dd>
+          <div *ngIf="recurso.tipoRecurso">
+            <a [routerLink]="['/tipo-recurso', recurso.tipoRecurso?.id, 'view']">{{ recurso.tipoRecurso?.descricao }}</a>
+          </div>
+        </dd>
+        <dt><span>Opcao Recurso</span></dt>
+        <dd>
+          <div *ngIf="recurso.opcaoRecurso">
+            <a [routerLink]="['/opcao-recurso', recurso.opcaoRecurso?.id, 'view']">{{ recurso.opcaoRecurso?.descricao }}</a>
+          </div>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <div *ngIf="recurso.processo">
+            <a [routerLink]="['/processo', recurso.processo?.id, 'view']">{{ recurso.processo?.oficio }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/recurso', recurso.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

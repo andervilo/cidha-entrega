@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172450",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "fundamentacao_doutrinaria",
+  "fields": [
+    {
+      "fieldName": "fundamentacaoDoutrinariaCitada",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "folhasFundamentacaoDoutrinaria",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fundamentacaoDoutrinariaSugerida",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "FundamentacaoDoutrinaria",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "problemaJuridico",
+      "otherEntityRelationshipName": "fundamentacaoDoutrinaria",
+      "ownerSide": false,
+      "relationshipName": "problemaJuridico",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

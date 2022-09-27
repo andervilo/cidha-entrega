@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20220927172455",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "opcao_recurso",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "OpcaoRecurso",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

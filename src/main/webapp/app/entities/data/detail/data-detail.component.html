@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="data">
+      <h2 data-cy="dataDetailsHeading"><span>Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ data.id }}</span>
+        </dd>
+        <dt><span>Data</span></dt>
+        <dd>
+          <span>{{ data.data | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Tipo Data</span></dt>
+        <dd>
+          <div *ngIf="data.tipoData">
+            <a [routerLink]="['/tipo-data', data.tipoData?.id, 'view']">{{ data.tipoData?.descricao }}</a>
+          </div>
+        </dd>
+        <dt><span>Processo</span></dt>
+        <dd>
+          <div *ngIf="data.processo">
+            <a [routerLink]="['/processo', data.processo?.id, 'view']">{{ data.processo?.oficio }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/data', data.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
